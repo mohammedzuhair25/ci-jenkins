@@ -5,6 +5,11 @@ node {
   def tagVersion
   def retrieveArtifact
 
+  tools {
+        // Use Java 8 for the build
+        jdk 'jdk18'
+    }
+
   stage('Prepare') {
   }
 
@@ -13,9 +18,6 @@ node {
   }
 
    stage('Build') {
-  tools {
-        jdk 'jdk18'
-  }
       if (isUnix()) {
          sh "mvn clean package -Dmaven.test.skip=true"
       } else {
