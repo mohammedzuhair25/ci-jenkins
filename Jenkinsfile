@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Replace 'your-repository-url' with the actual URL of your Git repository
-                git 'https://github.com/mohammedzuhair25/ci-jenkins.git' 
+                checkout scm
             }
         }
 
