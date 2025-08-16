@@ -9,7 +9,7 @@ node {
   }
 
   tools {
-        jdk 'jdk1.8' 
+        jdk 'jdk18' 
   }
 
   stage('Checkout') {
