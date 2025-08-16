@@ -10,7 +10,7 @@ node {
 
   tools {
         jdk 'jdk1.8' 
-    }
+  }
 
   stage('Checkout') {
      checkout scm
