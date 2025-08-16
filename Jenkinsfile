@@ -4,10 +4,13 @@ node {
   def artifactVersion
   def tagVersion
   def retrieveArtifact
-  def mvnHome
 
   stage('Prepare') {
   }
+
+  tools {
+        jdk 'jdk1.8' 
+    }
 
   stage('Checkout') {
      checkout scm
