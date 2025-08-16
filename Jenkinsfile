@@ -5,7 +5,6 @@ pipeline {
         // Refer to the JDK 1.8 installation configured in Jenkins Global Tool Configuration
         jdk 'jdk18'
         // Refer to the Maven installation configured in Jenkins Global Tool Configuration
-        maven 'maven3' 
     }
 
     stages {
