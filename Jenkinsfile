@@ -1,17 +1,19 @@
-node {
+pipeline {
+  agent any
 
-tools {
-        // Use Java 8 for the build
+  tools {
+        // Refer to the JDK 1.8 installation configured in Jenkins Global Tool Configuration
         jdk 'jdk18'
     }
 
+  stages {
   stage('Checkout') {
      checkout scm
   }
 
    stage('Build') {
       if (isUnix()) {
-         sh "mvn clean package -Dmaven.test.skip=true"
+         sh 'mvn clean package -Dmaven.test.skip=true'
       } else {
          bat(/mvn -Dmaven.test.failure.ignore clean package/)
       }
@@ -97,6 +99,6 @@ tools {
            sh 'curl -u jenkins:jenkins -T *.war "http://localhost:7080/manager/text/deploy?path=/devops&update=true"'
          }
  }
-
+}
 
 }
