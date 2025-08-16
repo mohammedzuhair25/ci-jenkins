@@ -1,17 +1,10 @@
-node {
+pipeline {
 
-  def pom
-  def artifactVersion
-  def tagVersion
-  def retrieveArtifact
-
+  agent any
   tools {
         // Use Java 8 for the build
         jdk 'jdk18'
     }
-
-  stage('Prepare') {
-  }
 
   stage('Checkout') {
      checkout scm
