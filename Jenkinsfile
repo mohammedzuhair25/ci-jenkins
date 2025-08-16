@@ -8,15 +8,14 @@ node {
   stage('Prepare') {
   }
 
-  tools {
-        jdk 'jdk18' 
-  }
-
   stage('Checkout') {
      checkout scm
   }
 
    stage('Build') {
+  tools {
+        jdk 'jdk18'
+  }
       if (isUnix()) {
          sh "mvn clean package -Dmaven.test.skip=true"
       } else {
