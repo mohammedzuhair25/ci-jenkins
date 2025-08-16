@@ -7,7 +7,6 @@ node {
   def mvnHome
 
   stage('Prepare') {
-    mvnHome = tool 'maven'
   }
 
   stage('Checkout') {
@@ -16,9 +15,9 @@ node {
 
    stage('Build') {
       if (isUnix()) {
-         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+         sh "mvn -Dmaven.test.failure.ignore clean package"
       } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+         bat(/mvn -Dmaven.test.failure.ignore clean package/)
       }
    }
    stage('Unit Test') {
