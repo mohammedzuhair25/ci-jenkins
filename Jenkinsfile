@@ -1,7 +1,6 @@
-pipeline {
+node {
 
-  agent any
-  tools {
+tools {
         // Use Java 8 for the build
         jdk 'jdk18'
     }
